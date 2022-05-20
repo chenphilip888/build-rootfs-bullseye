@@ -1,0 +1,33 @@
+This is to build linaro debian bullseye rootfs for following SBC's:
+rpi4b  ( Raspberry Pi 4B )
+radxa  ( Rock Pi 4B plus )
+rk3328 ( Renegade ROC-RK3328-CC )
+tinker ( ASUS TinkerBoard )
+
+Steps to build debian bullseye rootfs:
+
+1. git clone https://github.com/chenphilip888/build-rootfs-bullseye.git
+   cd build-rootfs-bullseye
+
+2. Install live-build:
+   sudo apt-get install debootstrap debhelper kpartx gdisk devscripts dh-systemd isolinux po4a
+   wget https://launchpad.net/debian/+archive/primary/+sourcefiles/live-build/1:20210407/live-build_20210407.tar.xz
+   tar xvf live-build_20210407.tar.xz
+   cd live-build
+   sudo make install
+
+3. cd ~/build-rootfs-bullseye/rpi4b  ( or radxa, rk3328, tinker, depends on SBC )
+   make all
+   The result is in ./linaro-rootfs.img
+   make clean
+
+login:
+username: linaro
+password: linaro
+uname -a
+lsb_release -a
+sudo dpkg-reconfigure tzdata
+sudo dpkg-reconfigure locales
+sudo apt update
+sudo apt upgrade
+sudo apt dist-upgrade
