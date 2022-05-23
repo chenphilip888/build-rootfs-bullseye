@@ -43,19 +43,16 @@ install_mali() {
 init_rkwifibt() {
     case $1 in
         rk3288)
-            rk_wifi_init /dev/ttyS0
             ;;
         rk3399|rk3399pro)
 	    rk_wifi_init /dev/ttyS0
             ;;
         rk3328)
-	    rk_wifi_init /dev/ttyS0
             ;;
         rk3326|px30)
 	    rk_wifi_init /dev/ttyS1
             ;;
         rk3128|rk3036)
-	    rk_wifi_init /dev/ttyS0
             ;;
         rk3566)
 	    rk_wifi_init /dev/ttyS1
